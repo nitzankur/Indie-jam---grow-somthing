@@ -8,6 +8,7 @@ public class SeasonIndicator : MonoBehaviour
     private Rigidbody2D _rb;
     private float updateTime = 1f;
     private int b = 80;
+    private int c = 90;
     
     
     void Start()
