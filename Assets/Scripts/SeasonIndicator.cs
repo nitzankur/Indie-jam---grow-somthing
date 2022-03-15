@@ -6,9 +6,9 @@ public class SeasonIndicator : MonoBehaviour
 {
     [SerializeField] private float minPerYear = 1f;
     private Rigidbody2D _rb;
-    private int a = 5;
-
-
+    private float updateTime = 1f;
+    
+    
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
