@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class World : MonoBehaviour
 {
-    [SerializeField] private float fastParamter;
-    private bool _worldMove = true;
+    
+    [Range(20,150)][SerializeField] private float fastParamter;
+    private bool _worldMove = false;
+    private float tmpParmeter;
 
     void Start()
     {
-      
+       tmpParmeter = fastParamter;
+       fastParamter = 0;
     }
 
     // Update is called once per frame
@@ -19,10 +22,27 @@ public class World : MonoBehaviour
         {
             if (!_worldMove)
             {
-                fastParamter = 0;
+                if (fastParamter == 0)
+                {
+                    fastParamter = tmpParmeter;}
+                else
+                {
+                    fastParamter = 0;
+                    _worldMove = true;
+                }
+               
             }
-            var rot = transform.rotation;
-            transform.rotation = rot * Quaternion.Euler(0, 0, -fastParamter*Time.deltaTime); 
+            else
+            {
+                fastParamter = tmpParmeter;
+                _worldMove = false;
+            }
         }
+        var rot = transform.rotation;
+        transform.rotation = rot * Quaternion.Euler(0, 0, -fastParamter*Time.deltaTime); 
+    }
+    public bool WorldMovement()
+    {
+        return _worldMove;
     }
 }
