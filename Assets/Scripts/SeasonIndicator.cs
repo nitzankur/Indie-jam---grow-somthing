@@ -12,15 +12,13 @@ public class SeasonIndicator : MonoBehaviour
         var degPerSec = 6 / minPerYear;
         var rot = transform.rotation;
         transform.rotation = rot * Quaternion.Euler(0, 0, -degPerSec * Time.deltaTime);
-        //print(transform.rotation.z);
-        //print(GetSeason());
     }
 
     public string GetSeason()
     {
-        var season = transform.rotation.z;
-        if (season > -90 && season <= 0) return "Spring";
-        if (season > -180 && season <= -90) return "Summer";
+        var season = transform.eulerAngles.z;
+        if (season <= 360 && season > 270) return "Spring";
+        if (season <= 270 && season > 180) return "Summer";
         if (season <= 180 && season > 90) return "Autumn";
         return "Winter";
     }
