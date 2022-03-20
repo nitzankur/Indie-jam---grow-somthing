@@ -11,12 +11,16 @@ public class Arrow : MonoBehaviour
     [Range(30, 150)] [SerializeField] private int MaxRotation;
     [SerializeField] private Vector3 DestinationScale;
     private Vector3 _originalScale;
+    private float timecount = 0.5f;
+    private IEnumerator _coro;
 
 
     // Start is called before the first frame update
     void Start()
     {
        _originalScale = gameObject.transform.localScale;
+       _moveRight = true;
+       _coro = ScaleOverTime(fastScale, _originalScale, DestinationScale);
     }
 
     // Update is called once per frame
@@ -25,26 +29,17 @@ public class Arrow : MonoBehaviour
         if (_moveLeftRight)
         {
             var rot = transform.rotation;
-            if (Math.Round(transform.rotation.z) == -MaxRotation)
-            {
-                _moveRight = false;
-                _moveLeft = true;
-            }
-            else if (Math.Round(transform.rotation.z) == MaxRotation)
-            {
-                _moveRight = true;
-                _moveLeft = false;
-            }
-
-
+            _moveRight = _moveRight ? timecount <= 1 : timecount <= 0;
             if (_moveRight)
             {
-                transform.rotation = rot * Quaternion.Euler(0, 0, -fastParamterHorizontal * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(Quaternion.Euler(0, 0, -MaxRotation),Quaternion.Euler(0, 0, MaxRotation),timecount);
+                timecount += Time.deltaTime;
             }
 
-            else if (_moveLeft)
+            else
             {
-                transform.rotation = rot * Quaternion.Euler(0, 0, fastParamterHorizontal * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(Quaternion.Euler(0, 0, -MaxRotation),Quaternion.Euler(0, 0, MaxRotation),timecount);
+                timecount -= Time.deltaTime;
             }
         }
 
@@ -62,12 +57,13 @@ public class Arrow : MonoBehaviour
             _moveLeftRight = false;
             _moveUpDown = true;
            
-            StartCoroutine(ScaleOverTime(fastScale,_originalScale,DestinationScale));
+            StartCoroutine(_coro);
         }
         else
         {
             _moveUpDown = false;
-            StartCoroutine(ScaleOverTime(fastScale,DestinationScale,_originalScale));
+            StopCoroutine(_coro);
+            //StartCoroutine(ScaleOverTime(fastScale,DestinationScale,_originalScale));
         }
     }
 
