@@ -1239,6 +1239,8 @@ GameObject:
   - component: {fileID: 597683836}
   - component: {fileID: 597683837}
   - component: {fileID: 597683838}
+  - component: {fileID: 597683839}
+  - component: {fileID: 597683840}
   m_Layer: 0
   m_Name: ForPlannet
   m_TagString: Untagged
@@ -1254,7 +1256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597683835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.109999895, y: 1, z: 0}
+  m_LocalPosition: {x: -0.13, y: 0.93, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1079362435}
@@ -1325,13 +1327,67 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &597683839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597683835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c174ebf66feeac24eae3253486689cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 597683837}
+  rb: {fileID: 597683838}
+  parmeterForce: {x: 0.5, y: 0.5, z: 0.5}
+--- !u!114 &597683840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597683835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6267ddfeb2a994a93fecacf131adcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.015430418
+      outSlope: -0.015430418
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.15658253
+    - serializedVersion: 3
+      time: 1
+      value: 0.2
+      inSlope: -1.2680113
+      outSlope: -1.2680113
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.076694965
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  JumpHeight: 1.1
+  WorldStart: {x: -0.1, y: 1, z: 0}
+  WorldEnd: {x: -0.29, y: 3.27, z: 0}
 --- !u!1 &673729654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,7 +2329,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67, y: 1.68}
+  m_Size: {x: 2.42, y: 1.7}
   m_EdgeRadius: 0
 --- !u!212 &1079362434
 SpriteRenderer:
@@ -2354,9 +2410,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fastParamterHorizontal: 152
-  fastScale: 11.1
+  fastScale: 4
   MaxRotation: 76
-  DestinationScale: {x: 1, y: 2, z: 1}
+  DestinationScale: {x: 1, y: 3, z: 1}
 --- !u!1001 &1158038365
 PrefabInstance:
   m_ObjectHideFlags: 0

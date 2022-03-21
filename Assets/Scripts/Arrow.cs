@@ -53,6 +53,7 @@ public class Arrow : MonoBehaviour
         }
         else if (_moveLeftRight)
         {
+            GameManager.Addforce = true;
             _moveLeftRight = false;
             _moveUpDown = true;
             StartCoroutine(_coro);
@@ -61,6 +62,7 @@ public class Arrow : MonoBehaviour
         {
             _moveUpDown = false;
             StopCoroutine(_coro);
+            GameManager.Throw = true;
         }
     }
 

@@ -20,6 +20,7 @@ public class Throw : MonoBehaviour
     {
       //  Debug.Log($"scale: {curve.Evaluate(0.5f)}");
       _radius = WorldEnd.y - WorldStart.y;
+      
     }
 
     // Update is called once per frame
@@ -31,25 +32,31 @@ public class Throw : MonoBehaviour
     private void ThrowBall()
     {
         var roadend = _radius * GameManager.force;
-        var pos = transform.localScale;
-        transform.localScale = new Vector3(pos * CalcultaeJump(x1,x2,x))
+        var pos = transform.position;
+        var scale = transform.localScale;
+        var jumpHeigt = CalcultaeJump(WorldStart.x, roadend, pos.x);
+        StartCoroutine(MoveOverTime(GameManager.force,WorldStart, WorldEnd));
+        transform.localScale = new Vector3(scale.x * jumpHeigt ,scale.y * jumpHeigt, scale.z);
+        GameManager.Throw = false;
     }
 
     private float CalcultaeJump(float x1, float x2, float x)
     {
-        return (-(x - x1)(x - x2)) * JumpHeight;
+        return (-( x- x1)*(x - x2)) * JumpHeight;
     }
     
-    IEnumerator ScaleOverTime(float time,Vector3 start,Vector3 destination)
+    IEnumerator MoveOverTime(float time,Vector3 start,Vector3 destination)
     {
+        print(time);
         float currentTime = 0.0f;
         do
         {
-            gameObject.transform.localScale = Vector3.Lerp(start, destination, currentTime / time);
+            gameObject.transform.position = Vector3.Lerp(start, destination, currentTime / time);
             currentTime += Time.deltaTime;
             yield return null;
         }while (currentTime <= time);
         
+        //Todo: understand i am move the ball fowrowrd with lerp - the time is limtiation or the position?
     }
     
    

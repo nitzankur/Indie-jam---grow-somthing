@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     {
         if (Addforce)
         {
-            force += 1;
+            force += 0.1f;
         }
     }
 }
