@@ -36,7 +36,7 @@ public class Arrow : MonoBehaviour
                 timecount += Time.deltaTime;
             }
 
-            else
+            else if (_moveLeft)
             {
                 transform.rotation = Quaternion.Slerp(Quaternion.Euler(0, 0, -MaxRotation),Quaternion.Euler(0, 0, MaxRotation),timecount);
                 timecount -= Time.deltaTime;
