@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class forPlanting : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private static SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite Seed,WetringCan,WeedKiller;
     [SerializeField] private Rigidbody2D rb;
     #region Singelton
@@ -18,7 +18,7 @@ public class forPlanting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer.sprite = null;
     }
 
     // Update is called once per frame
@@ -34,6 +34,6 @@ public class forPlanting : MonoBehaviour
 
     public static void Throw()
     {
-        
+        spriteRenderer.sprite = null;
     }
 }
