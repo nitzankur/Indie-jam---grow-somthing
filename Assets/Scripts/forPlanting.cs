@@ -5,18 +5,12 @@ using UnityEngine;
 public class forPlanting : MonoBehaviour
 {
     [SerializeField] private  SpriteRenderer spriteRenderer;
-    [SerializeField] private Sprite Seed,WetringCan,WeedKiller;
+   // [SerializeField] private Sprite Seed,WetringCan,WeedKiller;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private  Transform prefab;
-    // #region Singelton
-    // public static forPlanting seedShared;
-    // private void Awake()
-    // {
-    //     seedShared = this;
-    // }
-    // #endregion
-    
-    // Start is called before the first frame update
+    [SerializeField] private Vector3 parmeterForce;
+   // [SerializeField] private  Transform prefab;
+
+   // Start is called before the first frame update
     void Start()
     {
         spriteRenderer.sprite = null;
@@ -34,10 +28,5 @@ public class forPlanting : MonoBehaviour
         
     }
 
-    public void Throw()
-    {
-        spriteRenderer.sprite = null;
-        //Instantiate(prefab, new Vector3(xpos, ypos, 0), Quaternion.identity,transform);   
-        
-    }
+   
 }

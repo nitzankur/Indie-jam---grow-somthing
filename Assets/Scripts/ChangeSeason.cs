@@ -7,10 +7,6 @@ public class ChangeSeason : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite Spring,Summer,Winter,Autumn;
 
-    private void Start()
-    {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-    }
 
 
     // Update is called once per frame

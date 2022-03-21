@@ -53,10 +53,8 @@ public class Arrow : MonoBehaviour
         }
         else if (_moveLeftRight)
         {
-            print("move Up and Down");
             _moveLeftRight = false;
             _moveUpDown = true;
-           
             StartCoroutine(_coro);
         }
         else if (_moveUpDown)
