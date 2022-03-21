@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     }
     #endregion
 
-    private int _space = 20;
+    private int _space = 8;
     
     public delegate void OnItemChanged();
 

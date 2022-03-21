@@ -59,19 +59,17 @@ public class Arrow : MonoBehaviour
            
             StartCoroutine(_coro);
         }
-        else
+        else if (_moveUpDown)
         {
             _moveUpDown = false;
             StopCoroutine(_coro);
-            //StartCoroutine(ScaleOverTime(fastScale,DestinationScale,_originalScale));
+            forPlanting.Throw();
         }
     }
 
     IEnumerator ScaleOverTime(float time,Vector3 start,Vector3 destination)
     {
-        
         float currentTime = 0.0f;
-
         do
         {
             gameObject.transform.localScale = Vector3.Lerp(start, destination, currentTime / time);
