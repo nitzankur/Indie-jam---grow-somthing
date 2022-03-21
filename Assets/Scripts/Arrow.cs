@@ -63,7 +63,6 @@ public class Arrow : MonoBehaviour
         {
             _moveUpDown = false;
             StopCoroutine(_coro);
-            forPlanting.Throw();
         }
     }
 
