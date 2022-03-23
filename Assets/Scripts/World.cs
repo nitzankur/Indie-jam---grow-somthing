@@ -1,26 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class World : MonoBehaviour
 {
-    
-    [Range(20,150)][SerializeField] private float fastParamter;
-    private bool _worldMove = false;
+    [Range(20, 150)] [SerializeField] private float fastParamter;
     private float _tmpParmeter;
+    private bool _worldMove;
 
-    void Start()
+    private void Start()
     {
-       _tmpParmeter = fastParamter;
-       fastParamter = 0;
+        _tmpParmeter = fastParamter;
+        fastParamter = 0;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var rot = transform.rotation;
-        transform.rotation = rot * Quaternion.Euler(0, 0, -fastParamter*Time.deltaTime); 
+        transform.rotation = rot * Quaternion.Euler(0, 0, -fastParamter * Time.deltaTime);
     }
 
     private void OnMouseDown()
