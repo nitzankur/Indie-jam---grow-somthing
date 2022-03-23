@@ -4,5 +4,5 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public new string name = "Empty Item";
-    public Sprite icon = null;
+    public Sprite icon;
 }

@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeSeason : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Sprite Spring,Summer,Winter,Autumn;
-
+    [SerializeField] private Sprite Spring, Summer, Winter, Autumn;
 
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Changeseason();
     }
-    void ChangeSprite(Sprite newSprite)
+
+    private void ChangeSprite(Sprite newSprite)
     {
         spriteRenderer.sprite = newSprite;
     }
-    void Changeseason()
+
+    private void Changeseason()
     {
         if (GroundManager.year == "Spring") ChangeSprite(Spring);
         if (GroundManager.year == "Summer") ChangeSprite(Summer);
