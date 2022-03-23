@@ -6,9 +6,7 @@ public class FroggerAnimels : MonoBehaviour
     [SerializeField] private float Radius;
     [SerializeField] private Vector3 _centre;
     private float _angle;
-    [SerializeField]
-    [Range(0,1)]
-    private float waveSpeed;
+    [SerializeField] [Range(0,1)] private float waveSpeed;
 
     // Update is called once per frame
     private void Update()

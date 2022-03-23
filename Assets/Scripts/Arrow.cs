@@ -52,7 +52,7 @@ public class Arrow : MonoBehaviour
         }
         else if (_moveLeftRight)
         {
-            GameManager.Addforce = true;
+            GameManager.AddPower = true;
             _moveLeftRight = false;
             _moveUpDown = true;
             StartCoroutine(_coro);

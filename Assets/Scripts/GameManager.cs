@@ -3,9 +3,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _shared;
-    public static bool Addforce, Throw;
+    public static bool AddPower, Throw;
 
-    public static float force;
+    public static float power;
 
     // Start is called before the first frame update
     private void Awake()
@@ -17,6 +17,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Addforce) force += 0.1f;
+        if (AddPower) power += 0.1f;
     }
 }
