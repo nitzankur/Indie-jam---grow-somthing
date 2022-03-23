@@ -24,11 +24,12 @@ public class Plant : MonoBehaviour
 
     void ThrowBall()
     {
-        GameManager.Throw = false;
         spriteRenderer.sprite = tmpSprite;
         var veloc = rb.velocity;
-        var arrowDirect = Arrow.localPosition;
-        rb.velocity = new Vector2(veloc.x *arrowDirect.x, veloc.y * arrowDirect.y);
+        var arrowDirect = Arrow.rotation;
+        rb.velocity = new Vector2(1, 1 );
+        transform.rotation = arrowDirect;
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -39,6 +40,7 @@ public class Plant : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             GameManager.AddPower = false;
             GameManager.power = 0;
+            Debug.Log(other.name);
         }
     }
 }

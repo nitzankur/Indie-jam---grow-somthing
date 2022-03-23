@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 391775239}
   m_Layer: 0
   m_Name: Pink mountains
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 458504318}
   m_Layer: 0
   m_Name: bright brown mountains
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1242,6 +1242,7 @@ GameObject:
   - component: {fileID: 597683838}
   - component: {fileID: 597683840}
   - component: {fileID: 597683841}
+  - component: {fileID: 597683839}
   m_Layer: 0
   m_Name: ForPlannet
   m_TagString: Untagged
@@ -1257,7 +1258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597683835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.49, y: -2.45, z: -10}
+  m_LocalPosition: {x: 2.6, y: -2.99, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1335,6 +1336,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &597683839
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597683835}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &597683840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,7 +1731,7 @@ GameObject:
   - component: {fileID: 829042369}
   m_Layer: 0
   m_Name: filed (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2190,7 +2207,7 @@ GameObject:
   - component: {fileID: 1033052598}
   m_Layer: 0
   m_Name: brown mountains
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2729,7 +2746,7 @@ GameObject:
   - component: {fileID: 1419436723}
   m_Layer: 0
   m_Name: filed
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3264,7 +3281,7 @@ GameObject:
   - component: {fileID: 1689703660}
   m_Layer: 0
   m_Name: Purple mountains
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3346,7 +3363,7 @@ GameObject:
   - component: {fileID: 1779155315}
   m_Layer: 0
   m_Name: Pink mountains
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3359,7 +3376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779155313}
   m_LocalRotation: {x: -0, y: -0, z: 0.18620442, w: 0.98251104}
-  m_LocalPosition: {x: -1.23, y: 3.3866668, z: 0}
+  m_LocalPosition: {x: -0.9, y: 3.46, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_Children: []
   m_Father: {fileID: 358931430}
@@ -3801,7 +3818,7 @@ GameObject:
   - component: {fileID: 1887552297}
   m_Layer: 0
   m_Name: bright brown mountains
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3985,7 +4002,7 @@ GameObject:
   - component: {fileID: 1903886482}
   m_Layer: 0
   m_Name: brown mountains
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4333,7 +4350,7 @@ GameObject:
   - component: {fileID: 2020808702}
   m_Layer: 0
   m_Name: filed (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4619,7 +4636,7 @@ GameObject:
   - component: {fileID: 2129272966}
   m_Layer: 0
   m_Name: tree-middle
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
