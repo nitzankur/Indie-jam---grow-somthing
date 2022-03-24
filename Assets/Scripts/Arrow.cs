@@ -11,6 +11,7 @@ public class Arrow : MonoBehaviour
     private bool _moveLeftRight, _moveUpDown, _moveRight, _moveLeft;
     private Vector3 _originalScale;
     private float timecount = 0.5f;
+    [Range(0, 1)] [SerializeField] private float movementSpeed;
 
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class Arrow : MonoBehaviour
     {
         _originalScale = gameObject.transform.localScale;
         _moveRight = true;
-        _coro = ScaleOverTime(fastScale, _originalScale, DestinationScale);
+        _coro = MoveOverTime(fastScale, _originalScale, DestinationScale);
     }
 
     // Update is called once per frame
@@ -65,13 +66,25 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    private IEnumerator ScaleOverTime(float time, Vector3 start, Vector3 destination)
+    // private IEnumerator ScaleOverTime(float time, Vector3 start, Vector3 destination)
+    // {
+    //     var currentTime = 0.0f;
+    //     do
+    //     {
+    //         float test = Mathf.Sin(currentTime) * 0.5f + 0.5f;
+    //         gameObject.transform.localScale = Vector3.Lerp(start, destination, test);
+    //         currentTime += Time.deltaTime;
+    //         yield return null;
+    //     } while (currentTime <= time);
+    // }
+    //
+    private IEnumerator MoveOverTime(float time, Vector3 start, Vector3 destination)
     {
         var currentTime = 0.0f;
         do
-        {
+        { 
             float test = Mathf.Sin(currentTime) * 0.5f + 0.5f;
-            gameObject.transform.localScale = Vector3.Lerp(start, destination, test);
+            transform.position += transform.up * (currentTime) * movementSpeed ;
             currentTime += Time.deltaTime;
             yield return null;
         } while (currentTime <= time);

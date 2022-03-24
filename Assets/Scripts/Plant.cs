@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,16 @@ using UnityEngine;
 public class Plant : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform Arrow;
+    [SerializeField] private Rigidbody2D rb, Arrow;
+    [SerializeField] private Vector3 yParmeter;
     private Sprite tmpSprite;
+    private bool parnetPos;
+    
     [SerializeField] private float waitTimeDestroy;
-
-    void Start()
+    
+    private void Start()
     {
         tmpSprite = spriteRenderer.sprite;
-        //spriteRenderer.sprite = null;
         rb.gravityScale = 0;
     }
 
@@ -25,28 +27,26 @@ public class Plant : MonoBehaviour
 
     void ThrowBall()
     {
-        print("throw");
-        spriteRenderer.sprite = tmpSprite;
-        var veloc = rb.velocity;
-        var arrowDirect = Arrow.rotation;
-        rb.velocity = new Vector2(1, 1 );
-        transform.rotation = arrowDirect;
-        
+        Arrow.GetComponent<FixedJoint2D>().enabled = false;
+        rb.velocity = Vector2.one;
+        GameManager.Throw = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Frogger")) StartCoroutine(Die()) ;
         if (other.CompareTag("Ground"))
         {
-            gameObject.transform.parent = other.transform;
-            rb.velocity = new Vector2(0, 0);
+            rb.velocity = Vector2.zero;
+            rb.transform.SetParent(other.transform);
             GameManager.AddPower = false;
             GameManager.power = 0;
-            Debug.Log(other.name);
-            print("collision");
+        }
+        
+        else if (other.CompareTag("Frogger"))
+        {
+            StartCoroutine(Die()) ; 
         }
     }
-
+    
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(waitTimeDestroy);
