@@ -8,7 +8,8 @@ public class Plant : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform Arrow;
     private Sprite tmpSprite;
-    
+    [SerializeField] private float waitTimeDestroy;
+
     void Start()
     {
         tmpSprite = spriteRenderer.sprite;
@@ -34,7 +35,7 @@ public class Plant : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Frogger")) Destroy(gameObject);
+        if (other.CompareTag("Frogger")) StartCoroutine(Die()) ;
         if (other.CompareTag("Ground"))
         {
             gameObject.transform.parent = other.transform;
@@ -44,5 +45,11 @@ public class Plant : MonoBehaviour
             Debug.Log(other.name);
             print("collision");
         }
+    }
+
+    private IEnumerator Die()
+    {
+        yield return new WaitForSeconds(waitTimeDestroy);
+        Destroy(gameObject);
     }
 }
