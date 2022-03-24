@@ -24,6 +24,7 @@ public class Plant : MonoBehaviour
 
     void ThrowBall()
     {
+        print("throw");
         spriteRenderer.sprite = tmpSprite;
         var veloc = rb.velocity;
         var arrowDirect = Arrow.rotation;
@@ -41,6 +42,7 @@ public class Plant : MonoBehaviour
             GameManager.AddPower = false;
             GameManager.power = 0;
             Debug.Log(other.name);
+            print("collision");
         }
     }
 }
