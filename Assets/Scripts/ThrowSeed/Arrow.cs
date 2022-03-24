@@ -78,12 +78,12 @@ public class Arrow : MonoBehaviour
         var startTime = Time.time;
         do
         {
-            float test = Mathf.Sin(currentTime) * 0.5f + 0.5f;
+            float test =currentTime;
             transform.position += transform.up * (currentTime) * movementSpeed ;
-            currentTime += Time.deltaTime;
-            yield return null;
+                currentTime += Time.deltaTime;
+                yield return null;
         } while (Time.time - startTime <= 0.3);
 
-        transform.position =startPos;
+        Vector3.Lerp(transform.position, startPos, currentTime);
     }
 }

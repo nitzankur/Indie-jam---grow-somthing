@@ -30,6 +30,7 @@ public class Plant : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
+            GameManager.newSeed = true;
             rb.velocity = Vector2.zero;
             rb.transform.SetParent(other.transform);
             GameManager.AddPower = false;
