@@ -4,7 +4,9 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     #region Fileds
+
     [Range(0, 20)] [SerializeField] private float fastScale;
+    [SerializeField] private float yLimit,xLimit;
     [Range(30, 150)] [SerializeField] private int MaxRotation;
     [SerializeField] private Vector3 DestinationScale;
     private IEnumerator _coro;
@@ -79,11 +81,30 @@ public class Arrow : MonoBehaviour
         do
         {
             float test =currentTime;
-            transform.position += transform.up * (currentTime) * movementSpeed ;
-                currentTime += Time.deltaTime;
-                yield return null;
+            if (transform.position.x < xLimit || transform.position.y < yLimit)
+            {
+                print("transform up");
+                transform.position += transform.up * (currentTime) * movementSpeed;
+            }
+            else
+            {
+                print("transform down");
+                transform.position += Vector3.down * (currentTime) * movementSpeed;
+            }
+            currentTime += Time.deltaTime;
+              yield return null;
         } while (Time.time - startTime <= 0.3);
-
-        Vector3.Lerp(transform.position, startPos, currentTime);
     }
+
+    // private IEnumerator ScaleOverTime(float time, Vector3 start, Vector3 destination)
+    // {
+    //     var currentTime = 0.0f;
+    //     do
+    //     {
+    //         float test = Mathf.Sin(currentTime) * 0.5f + 0.5f;
+    //         gameObject.transform.localScale = Vector3.Lerp(start, destination, test);
+    //         currentTime += Time.deltaTime;
+    //         yield return null;
+    //     } while (currentTime <= time);
+    // }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Frogger
+  - Mountain
+  - River
   layers:
   - Default
   - TransparentFX
