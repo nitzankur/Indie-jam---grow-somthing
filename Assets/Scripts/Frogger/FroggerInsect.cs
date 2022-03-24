@@ -11,8 +11,9 @@ public class FroggerInsect : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //this code make the insect circular movement
         _angle = fastParamter * Time.deltaTime;
         transform.RotateAround(_centre, Vector3.forward, _angle);
-        //transform.position =_centre + transform.up * (Radius + waveSpeed * Mathf.Sin(Time.time));
+        
     }
 }

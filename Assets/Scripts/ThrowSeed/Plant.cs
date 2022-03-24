@@ -5,17 +5,13 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D rb, Arrow;
-    [SerializeField] private Vector3 yParmeter;
-    private Sprite tmpSprite;
     private bool parnetPos;
-    
     [SerializeField] private float waitTimeDestroy;
-    
+    private bool _ground;
+
     private void Start()
     {
-        tmpSprite = spriteRenderer.sprite;
         rb.gravityScale = 0;
     }
 
@@ -27,8 +23,7 @@ public class Plant : MonoBehaviour
 
     void ThrowBall()
     {
-        Arrow.GetComponent<FixedJoint2D>().enabled = false;
-        rb.velocity = Vector2.one;
+        rb.velocity = transform.up;
         GameManager.Throw = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -39,14 +34,14 @@ public class Plant : MonoBehaviour
             rb.transform.SetParent(other.transform);
             GameManager.AddPower = false;
             GameManager.power = 0;
+            _ground = true;
         }
         
         else if (other.CompareTag("Frogger"))
         {
-            StartCoroutine(Die()) ; 
+            if (!_ground) StartCoroutine(Die());
         }
     }
-    
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(waitTimeDestroy);
