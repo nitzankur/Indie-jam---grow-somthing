@@ -72,39 +72,69 @@ public class Arrow : MonoBehaviour
             GameManager.Throw = true;
         }
     }
-    
+
+    // private void MoveOverTime(float time, Vector3 start, Vector3 destination)
+    // {
+    //     var startPos = transform.position;
+    //     var currentTime = 0.0f;
+    //     var startTime = Time.time;
+    // }
     private IEnumerator MoveOverTime(float time, Vector3 start, Vector3 destination)
     {
         var startPos = transform.position;
         var currentTime = 0.0f;
         var startTime = Time.time;
+        var timeParameter = 0.5f;
+        var _goUp = true;
         do
         {
-            float test =currentTime;
-            if (transform.position.x < xLimit || transform.position.y < yLimit)
+            
+            // print((Mathf.Abs(transform.position.x)));
+            // if ((Mathf.Abs(transform.position.x)  < xLimit || transform.position.y < yLimit) && _goUp)
+            // {
+            //     print("transform up");
+            //     transform.position += transform.up * (currentTime) * movementSpeed;
+            // }
+            // else
+            // {
+            //     _goUp = false;
+            //     print("transform down");
+            //     transform.position = Vector3.Lerp(transform.position, startPos, currentTime/timeParameter);
+            // }
+            if (_goUp)
             {
-                print("transform up");
                 transform.position += transform.up * (currentTime) * movementSpeed;
             }
             else
             {
-                print("transform down");
-                transform.position += Vector3.down * (currentTime) * movementSpeed;
+                transform.position = Vector3.Lerp(transform.position, startPos, currentTime);
             }
+
+            if ((Mathf.Abs(transform.position.x) < xLimit || transform.position.y < yLimit) && _goUp)
+            {
+                
+            }
+            else
+            {
+                _goUp = false;
+                if (transform.position == startPos)
+                    _goUp = true;
+            }
+            
             currentTime += Time.deltaTime;
-              yield return null;
-        } while (Time.time - startTime <= 0.3);
+            yield return null;
+        } while (true);
     }
 
-    // private IEnumerator ScaleOverTime(float time, Vector3 start, Vector3 destination)
-    // {
-    //     var currentTime = 0.0f;
-    //     do
-    //     {
-    //         float test = Mathf.Sin(currentTime) * 0.5f + 0.5f;
-    //         gameObject.transform.localScale = Vector3.Lerp(start, destination, test);
-    //         currentTime += Time.deltaTime;
-    //         yield return null;
-    //     } while (currentTime <= time);
-    // }
+    private IEnumerator ScaleOverTime(float time, Vector3 start, Vector3 destination)
+    {
+        var currentTime = 0.0f;
+        do
+        {
+            float test = Mathf.Sin(currentTime) * 0.5f + 0.5f;
+            gameObject.transform.localScale = Vector3.Lerp(start, destination, test);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+    }
 }
