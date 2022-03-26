@@ -8,23 +8,24 @@ public class SeedThrow : MonoBehaviour
 {
     private GameManager _gameManager;
     [SerializeField] private bool resetArrowPos = false;
-    [Range(0, 1)] [SerializeField] private float seedSizeScaler = 1;
+    [Range(0, 1)] [SerializeField] private float seedSizeScaler = 1f;
     [Range(1, 50)] [SerializeField] private float speedScaler = 15;
     [Range(1, 2)] [SerializeField] private float targetSpeed = 1f;
     [SerializeField] private GameObject target;
+    [SerializeField] private GameObject garden;
     private Vector3 _targetBasePos, _arrowBasePos;
     private bool _rotateArrow = false;
-    private int _arrowDirection = 1;
+    private int _arrowDirection = 1; // 1=right -1=left
     private bool _sendTarget = false;
-    private int _targetDirection = 1;
-    
+    private int _targetDirection = 1;// 1=up -1=down
+
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _targetBasePos = target.transform.localPosition;
         _arrowBasePos = transform.position;
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) ButtonPressed();
@@ -41,6 +42,7 @@ public class SeedThrow : MonoBehaviour
         else if (!_sendTarget) _sendTarget = true;
         else
         {
+            print(CheckTarget());
             ResetArrow();
         }
     }
@@ -76,10 +78,10 @@ public class SeedThrow : MonoBehaviour
     private bool CheckTarget()
     {
         var pos = target.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.up / seedSizeScaler, 0f, 3);
-        if (hit.collider != null)
+        var intersecting = Physics2D.OverlapCircleAll(pos, seedSizeScaler);
+        if (intersecting.Length > 0)
         {
-            return false;
+            return intersecting.Length == 1 && intersecting[0].gameObject.CompareTag("Ground");
         }
 
         return true;
