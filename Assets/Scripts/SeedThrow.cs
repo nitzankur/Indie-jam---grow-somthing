@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class SeedThrow : MonoBehaviour
 {
+    private GameManager _gameManager;
     [SerializeField] private bool resetArrowPos = false;
     [Range(0, 1)] [SerializeField] private float seedSizeScaler = 1;
     [Range(1, 50)] [SerializeField] private float speedScaler = 15;
@@ -19,6 +20,7 @@ public class SeedThrow : MonoBehaviour
     
     void Start()
     {
+        _gameManager = FindObjectOfType<GameManager>();
         _targetBasePos = target.transform.localPosition;
         _arrowBasePos = transform.position;
     }
@@ -34,6 +36,7 @@ public class SeedThrow : MonoBehaviour
 
     private void ButtonPressed()
     {
+        _gameManager.IsTrowingSeed = true;
         if (!_rotateArrow && !_sendTarget) _rotateArrow = true;
         else if (!_sendTarget) _sendTarget = true;
         else
@@ -59,6 +62,7 @@ public class SeedThrow : MonoBehaviour
 
     private void ResetArrow()
     {
+        _gameManager.IsTrowingSeed = false;
         target.transform.localPosition = _targetBasePos;
         if (resetArrowPos) transform.rotation = Quaternion.identity;
         if (Random.Range(0, 2) == 0)
