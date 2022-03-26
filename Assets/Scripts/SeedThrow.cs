@@ -11,7 +11,7 @@ public class SeedThrow : MonoBehaviour
     [SerializeField] private bool resetArrowPos = false;
     [Range(0, 1)] [SerializeField] private float seedSizeScaler = 1f;
     [Range(1, 50)] [SerializeField] private float speedScaler = 15;
-    [Range(1, 2)] [SerializeField] private float targetSpeed = 1f;
+    [Range(10, 20)] [SerializeField] private float targetSpeed = 10f;
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject garden;
     [SerializeField] private List<GameObject> plants = new List<GameObject>(2);
@@ -31,7 +31,10 @@ public class SeedThrow : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) ButtonPressed();
+    }
 
+    private void FixedUpdate()
+    {
         if (_rotateArrow && !_sendTarget) RotateArrow();
 
         if (_sendTarget) SendTarget();
