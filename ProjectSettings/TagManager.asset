@@ -9,6 +9,7 @@ TagManager:
   - Mountain
   - River
   - Field
+  - Flower
   layers:
   - Default
   - TransparentFX
