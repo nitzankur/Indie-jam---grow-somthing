@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,7 @@ public class SeedThrow : MonoBehaviour
     [Range(1, 2)] [SerializeField] private float targetSpeed = 1f;
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject garden;
+    [SerializeField] private List<GameObject> plants = new List<GameObject>(2);
     private Vector3 _targetBasePos, _arrowBasePos;
     private bool _rotateArrow = false;
     private int _arrowDirection = 1; // 1=right -1=left
@@ -42,7 +44,7 @@ public class SeedThrow : MonoBehaviour
         else if (!_sendTarget) _sendTarget = true;
         else
         {
-            print(CheckTarget());
+            if (CheckTarget()) PlantSeed();
             ResetArrow();
         }
     }
@@ -57,7 +59,7 @@ public class SeedThrow : MonoBehaviour
     private void SendTarget()
     {
         var targetPos = target.transform.localPosition;
-        if (targetPos.y > 30) _targetDirection *= -1;
+        if (targetPos.y > 28) _targetDirection *= -1;
         if (targetPos.y < 12) _targetDirection *= -1;
         target.transform.position += _targetDirection * transform.up * targetSpeed / 100;
     }
@@ -84,6 +86,12 @@ public class SeedThrow : MonoBehaviour
             return intersecting.Length == 1 && intersecting[0].gameObject.CompareTag("Ground");
         }
 
-        return true;
+        return false;
+    }
+
+    private void PlantSeed()
+    {
+        var pos = target.transform.position;
+        Instantiate(plants[Random.Range(0, plants.Count)], pos, transform.rotation, garden.transform);
     }
 }

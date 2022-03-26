@@ -1086,6 +1086,10 @@ MonoBehaviour:
   speedScaler: 15
   targetSpeed: 1
   target: {fileID: 1480818357}
+  garden: {fileID: 0}
+  plants:
+  - {fileID: 6418896929534804539, guid: a52fcd66d0e3b5f4d9e1dd9376ea315f, type: 3}
+  - {fileID: 6418896929534804539, guid: a52fcd66d0e3b5f4d9e1dd9376ea315f, type: 3}
 --- !u!212 &863880138
 SpriteRenderer:
   m_ObjectHideFlags: 0
