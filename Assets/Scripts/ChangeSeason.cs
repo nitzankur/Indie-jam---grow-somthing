@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeSeason : MonoBehaviour
 {
-    
+    private GameManager _gameManager;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite Spring, Summer, Winter, Autumn;
 
@@ -12,7 +13,12 @@ public class ChangeSeason : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Changeseason();
+         Changeseason();
+    }
+
+    private void Start()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void ChangeSprite(Sprite newSprite)
@@ -20,11 +26,11 @@ public class ChangeSeason : MonoBehaviour
         spriteRenderer.sprite = newSprite;
     }
 
-    // private void Changeseason()
-    // {
-    //     if (g.GetSeason() == "Spring") ChangeSprite(Spring);
-    //     if (GroundManager.year == "Summer") ChangeSprite(Summer);
-    //     if (GroundManager.year == "Winter") ChangeSprite(Winter);
-    //     if (GroundManager.year == "Autumn") ChangeSprite(Autumn);
-    // }
+    private void Changeseason()
+    {
+        if (_gameManager.CurrentSeason == "Spring") ChangeSprite(Spring);
+        if (_gameManager.CurrentSeason == "Summer") ChangeSprite(Summer);
+        if (_gameManager.CurrentSeason == "Winter") ChangeSprite(Winter);
+        if (_gameManager.CurrentSeason == "Autumn") ChangeSprite(Autumn);
+    }
 }
