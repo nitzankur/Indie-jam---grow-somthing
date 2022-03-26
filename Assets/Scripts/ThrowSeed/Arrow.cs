@@ -83,8 +83,8 @@ public class Arrow : MonoBehaviour
     {
         var startPos = transform.position;
         var currentTime = 0.0f;
-        var startTime = Time.time;
-        var timeParameter = 0.5f;
+        //var startTime = Time.time;
+        //var timeParameter = 0.5f;
         var _goUp = true;
         do
         {
