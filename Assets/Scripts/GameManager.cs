@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public bool IsTrowingSeed { get; set; }
     public string CurrentSeason { get; set; }
     
+    public float CurrentDeg { get; set; }
+    
     private void Awake()
     {
         _shared = this;
