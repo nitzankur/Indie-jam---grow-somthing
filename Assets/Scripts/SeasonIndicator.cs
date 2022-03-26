@@ -22,6 +22,7 @@ public class SeasonIndicator : MonoBehaviour
     private string GetSeason()
     {
         var deg = transform.localEulerAngles.z;
+        _gameManager.CurrentDeg = deg;
         if (360 >= deg && deg > 243) return "Spring";
         if (243 >= deg && deg > 132) return "Summer";
         if (132 >= deg && deg > 42) return "Fall";
