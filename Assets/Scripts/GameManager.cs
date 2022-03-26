@@ -1,21 +1,24 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _shared;
-    public static bool AddPower, Throw, newSeed;
-    public static float power;
-
-    // Start is called before the first frame update
+    
+    public bool IsTrowingSeed { get; set; }
+    public string CurrentSeason { get; set; }
+    
     private void Awake()
     {
         _shared = this;
+        DontDestroyOnLoad(gameObject);
+        SetDefaultVariables();
     }
 
-
-    // Update is called once per frame
-    private void Update()
+    private void SetDefaultVariables()
     {
-        if (AddPower) power += 0.1f;
+        IsTrowingSeed = false;
+        CurrentSeason = "Spring";
     }
+    
 }

@@ -1,12 +1,20 @@
+using System;
 using UnityEngine;
 
 public class World : MonoBehaviour
 {
+    private GameManager _gameManager;
     [Range(20, 150)] [SerializeField] private float fastParameter = 70;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void Update()
     {
+        if(_gameManager.IsTrowingSeed) return;
+        
         if (Input.GetKey(KeyCode.RightArrow))
         {
             var rot = transform.rotation;
