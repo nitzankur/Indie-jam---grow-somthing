@@ -19,7 +19,7 @@ public class SeedThrow : MonoBehaviour
     private bool _rotateArrow = false;
     private int _arrowDirection = 1; // 1=right -1=left
     private bool _sendTarget = false;
-    private int _targetDirection = 1;// 1=up -1=down
+    private int _targetDirection = 1; // 1=up -1=down
 
     void Start()
     {
@@ -86,6 +86,7 @@ public class SeedThrow : MonoBehaviour
         var intersecting = Physics2D.OverlapCircleAll(pos, seedSizeScaler);
         if (intersecting.Length > 0)
         {
+            print(intersecting.Length);
             return intersecting.Length == 1 && intersecting[0].gameObject.CompareTag("Ground");
         }
 
@@ -95,6 +96,9 @@ public class SeedThrow : MonoBehaviour
     private void PlantSeed()
     {
         var pos = target.transform.position;
+        //var z = (30 - target.transform.localPosition.y) /
+        //        -4 - 4; // 30 is the max world radius, this calculation makes sure plants that are closer to the center of the ball wont spawn 'behind' plants that are behind them
+        //pos.z = z;
         Instantiate(plants[Random.Range(0, plants.Count)], pos, transform.rotation, garden.transform);
     }
 }
