@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,27 +9,32 @@ public class SeedThrow : MonoBehaviour
 {
     private GameManager _gameManager;
     [SerializeField] private bool resetArrowPos = false;
-    [Range(0, 1)] [SerializeField] private float seedSizeScaler = 1;
+    [Range(0, 1)] [SerializeField] private float seedSizeScaler = 1f;
     [Range(1, 50)] [SerializeField] private float speedScaler = 15;
-    [Range(1, 2)] [SerializeField] private float targetSpeed = 1f;
+    [Range(10, 20)] [SerializeField] private float targetSpeed = 10f;
     [SerializeField] private GameObject target;
+    [SerializeField] private GameObject garden;
+    [SerializeField] private List<GameObject> plants = new List<GameObject>(2);
     private Vector3 _targetBasePos, _arrowBasePos;
     private bool _rotateArrow = false;
-    private int _arrowDirection = 1;
+    private int _arrowDirection = 1; // 1=right -1=left
     private bool _sendTarget = false;
-    private int _targetDirection = 1;
-    
+    private int _targetDirection = 1;// 1=up -1=down
+
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _targetBasePos = target.transform.localPosition;
         _arrowBasePos = transform.position;
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) ButtonPressed();
+    }
 
+    private void FixedUpdate()
+    {
         if (_rotateArrow && !_sendTarget) RotateArrow();
 
         if (_sendTarget) SendTarget();
@@ -41,6 +47,7 @@ public class SeedThrow : MonoBehaviour
         else if (!_sendTarget) _sendTarget = true;
         else
         {
+            if (CheckTarget()) PlantSeed();
             ResetArrow();
         }
     }
@@ -55,7 +62,7 @@ public class SeedThrow : MonoBehaviour
     private void SendTarget()
     {
         var targetPos = target.transform.localPosition;
-        if (targetPos.y > 30) _targetDirection *= -1;
+        if (targetPos.y > 28) _targetDirection *= -1;
         if (targetPos.y < 12) _targetDirection *= -1;
         target.transform.position += _targetDirection * transform.up * targetSpeed / 100;
     }
@@ -76,12 +83,18 @@ public class SeedThrow : MonoBehaviour
     private bool CheckTarget()
     {
         var pos = target.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.up / seedSizeScaler, 0f, 3);
-        if (hit.collider != null)
+        var intersecting = Physics2D.OverlapCircleAll(pos, seedSizeScaler);
+        if (intersecting.Length > 0)
         {
-            return false;
+            return intersecting.Length == 1 && intersecting[0].gameObject.CompareTag("Ground");
         }
 
-        return true;
+        return false;
+    }
+
+    private void PlantSeed()
+    {
+        var pos = target.transform.position;
+        Instantiate(plants[Random.Range(0, plants.Count)], pos, transform.rotation, garden.transform);
     }
 }

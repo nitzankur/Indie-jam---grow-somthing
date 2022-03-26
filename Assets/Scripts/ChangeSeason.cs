@@ -20,7 +20,11 @@ public class ChangeSeason : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+<<<<<<< HEAD
         ChangeSeasonAnimation();
+=======
+        Changeseason();
+>>>>>>> 49cfe923a1dd500aad13e380a2551776a8542ae0
     }
 
     private void Start()
