@@ -4,17 +4,18 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-    public static AudioManager Shared;
+    private static AudioManager _shared;
 
     private void Awake()
     {
-        if (!Shared)
+        if (!_shared)
         {
-            Shared = this;
+            _shared = this;
             DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
+
         LoadSounds();
     }
 
@@ -37,7 +38,7 @@ public class AudioManager : MonoBehaviour
         var sound = Array.Find(sounds, sound => sound.soundName == soundName);
         sound?.audioSource.Play();
     }
-    
+
     // this func plays a sound using its name
     public void PlayDelaySound(string soundName, float delay)
     {
@@ -51,5 +52,4 @@ public class AudioManager : MonoBehaviour
         var sound = Array.Find(sounds, sound => sound.soundName == soundName);
         sound?.audioSource.Pause();
     }
-    
 }

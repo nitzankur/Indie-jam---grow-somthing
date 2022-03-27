@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
         AudioManager = FindObjectOfType<AudioManager>();
         SetDefaultVariables();
     }
@@ -65,9 +66,8 @@ public class GameManager : MonoBehaviour
 
     public void YearPassed()
     {
-        if(NextGoal > Score) SceneManager.LoadScene("End");
+        if (NextGoal > Score) SceneManager.LoadScene("End");
         _yearsPassed += 1;
         UpdateTargetGoal();
     }
-    
 }

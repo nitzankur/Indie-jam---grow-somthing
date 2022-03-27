@@ -19,14 +19,14 @@ public class SeedThrow : MonoBehaviour
     private bool _sendTarget = false;
     private int _targetDirection = 1; // 1=up -1=down
 
-    void Start()
+    private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _targetBasePos = target.transform.localPosition;
         _arrowBasePos = transform.position;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) ButtonPressed();
     }
@@ -96,6 +96,7 @@ public class SeedThrow : MonoBehaviour
     {
         _gameManager.AudioManager.PlaySound("Planted");
         var pos = target.transform.position;
+        pos.z = 0;
         Instantiate(plants[Random.Range(1, plants.Count)], pos, transform.rotation, garden.transform);
         _gameManager.Score += 1;
     }
@@ -106,6 +107,5 @@ public class SeedThrow : MonoBehaviour
         var pos = target.transform.position;
         var tempSeed = Instantiate(plants[0], pos, transform.rotation, garden.transform);
         Destroy(tempSeed, 1);
-        
     }
 }
