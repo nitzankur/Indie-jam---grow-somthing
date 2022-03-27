@@ -20,4 +20,5 @@ public class FroggerAnimels : MonoBehaviour
         waveSpeed = 0.5f;
         transform.position = centre + transform.up * (radius + waveSpeed * Mathf.Sin(Time.time));
     }
+    
 }

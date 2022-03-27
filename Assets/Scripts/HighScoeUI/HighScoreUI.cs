@@ -37,7 +37,7 @@ public class HighScoreUI : MonoBehaviour
 
                 // write or overwrite name & points
                 
-                var texts = uiElements[i].GetComponentsInChildren<Text> ();
+                var texts = uiElements[i].GetComponentsInChildren<TextMeshProUGUI> ();
                 texts[0].text = el.playerName;
                 texts[1].text = el.points.ToString ();
             }
