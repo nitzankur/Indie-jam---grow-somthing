@@ -65,8 +65,18 @@ public class SeedThrow : MonoBehaviour
     private void SendTarget()
     {
         var targetPos = target.transform.localPosition;
-        if (targetPos.y > 28) _targetDirection *= -1;
-        if (targetPos.y < 12) _targetDirection *= -1;
+        if (targetPos.y > 28)
+        {
+            targetPos.y = 28;
+            _targetDirection *= -1;
+        }
+
+        if (targetPos.y < 12)
+        {
+            targetPos.y = 12;
+            _targetDirection *= -1;
+        }
+        target.transform.localPosition = targetPos;
         target.transform.position += _targetDirection * transform.up * targetSpeed / 100;
     }
 
@@ -97,9 +107,9 @@ public class SeedThrow : MonoBehaviour
         _gameManager.AudioManager.PlaySound("Planted");
         var pos = target.transform.position;
         var newPlant = Instantiate(plants[Random.Range(1, plants.Count)], pos, transform.rotation, garden.transform);
-        pos = newPlant.transform.localPosition;
-        pos.z = target.transform.localPosition.y / 3;
-        newPlant.transform.localPosition = pos;
+        pos = newPlant.transform.localPosition;// next three lines explanation:
+        pos.z = target.transform.localPosition.y / 3;// meant to plant that are closer to the centre of the world
+        newPlant.transform.localPosition = pos;// wont overlap with those behind them
         _gameManager.Score += 1;
     }
 
