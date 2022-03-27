@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 public class SeasonIndicator : MonoBehaviour
 {
     private GameManager _gameManager;
-    private bool isWinter = false;
+    private bool isWinter = true;
     [Range(0.1f, 30)] [SerializeField] private float minPerYear = 15f;
 
     private void Start()

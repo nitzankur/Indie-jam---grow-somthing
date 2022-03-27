@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -43,7 +41,11 @@ public class SeedThrow : MonoBehaviour
     private void ButtonPressed()
     {
         _gameManager.IsTrowingSeed = true;
-        if (!_rotateArrow && !_sendTarget) _rotateArrow = true;
+        if (!_rotateArrow && !_sendTarget)
+        {
+            _rotateArrow = true;
+            _gameManager.AudioManager.PlaySound("Throw");
+        }
         else if (!_sendTarget) _sendTarget = true;
         else
         {
@@ -92,6 +94,7 @@ public class SeedThrow : MonoBehaviour
 
     private void PlantSeed()
     {
+        _gameManager.AudioManager.PlaySound("Planted");
         var pos = target.transform.position;
         Instantiate(plants[Random.Range(1, plants.Count)], pos, transform.rotation, garden.transform);
         _gameManager.Score += 1;
@@ -99,6 +102,7 @@ public class SeedThrow : MonoBehaviour
 
     private void PopSeed()
     {
+        _gameManager.AudioManager.PlaySound("Missed");
         var pos = target.transform.position;
         var tempSeed = Instantiate(plants[0], pos, transform.rotation, garden.transform);
         Destroy(tempSeed, 1);

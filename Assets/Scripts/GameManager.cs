@@ -1,10 +1,11 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _shared;
+
     [SerializeField] private List<int> winterTargets = new List<int>();
     private int _yearsPassed;
 
@@ -13,13 +14,19 @@ public class GameManager : MonoBehaviour
     public int Score { get; set; }
     public int NextGoal { get; set; }
     public float CurrentDeg { get; set; }
+    public AudioManager AudioManager { get; set; }
 
     private void Awake()
     {
-        _shared = this;
-        DontDestroyOnLoad(gameObject);
+        if (!_shared)
+        {
+            _shared = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+        AudioManager = FindObjectOfType<AudioManager>();
         SetDefaultVariables();
-        UpdateTargetGoal();
     }
 
     private void SetDefaultVariables()
@@ -29,6 +36,23 @@ public class GameManager : MonoBehaviour
         Score = 0;
         _yearsPassed = 0;
         NextGoal = 0;
+        UpdateTargetGoal();
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void LoadRules()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
+
+    public void RestartGame()
+    {
+        SetDefaultVariables();
+        SceneManager.LoadScene("Start");
     }
 
     private void UpdateTargetGoal()
@@ -41,8 +65,9 @@ public class GameManager : MonoBehaviour
 
     public void YearPassed()
     {
-        //if(NextGoal > Score) return; // end game
+        if(NextGoal > Score) SceneManager.LoadScene("End");
         _yearsPassed += 1;
         UpdateTargetGoal();
     }
+    
 }
