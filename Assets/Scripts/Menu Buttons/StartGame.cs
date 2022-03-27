@@ -14,5 +14,6 @@ public class StartGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) _gameManager.LoadInput();
         if (Input.GetKeyDown(KeyCode.I)) _gameManager.LoadRules();
+        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
     }
 }
