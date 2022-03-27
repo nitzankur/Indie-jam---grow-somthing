@@ -11,7 +11,7 @@ public class World : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(_gameManager.IsTrowingSeed) return;
         

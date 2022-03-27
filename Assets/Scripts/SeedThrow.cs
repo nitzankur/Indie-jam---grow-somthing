@@ -48,6 +48,7 @@ public class SeedThrow : MonoBehaviour
         else
         {
             if (CheckTarget()) PlantSeed();
+            else PopSeed();
             ResetArrow();
         }
     }
@@ -85,20 +86,22 @@ public class SeedThrow : MonoBehaviour
         var pos = target.transform.position;
         var intersecting = Physics2D.OverlapCircleAll(pos, seedSizeScaler);
         if (intersecting.Length > 0)
-        {
-            print(intersecting.Length);
             return intersecting.Length == 1 && intersecting[0].gameObject.CompareTag("Ground");
-        }
-
         return false;
     }
 
     private void PlantSeed()
     {
         var pos = target.transform.position;
-        //var z = (30 - target.transform.localPosition.y) /
-        //        -4 - 4; // 30 is the max world radius, this calculation makes sure plants that are closer to the center of the ball wont spawn 'behind' plants that are behind them
-        //pos.z = z;
-        Instantiate(plants[Random.Range(0, plants.Count)], pos, transform.rotation, garden.transform);
+        Instantiate(plants[Random.Range(1, plants.Count)], pos, transform.rotation, garden.transform);
+        _gameManager.Score += 1;
+    }
+
+    private void PopSeed()
+    {
+        var pos = target.transform.position;
+        var tempSeed = Instantiate(plants[0], pos, transform.rotation, garden.transform);
+        Destroy(tempSeed, 1);
+        
     }
 }
