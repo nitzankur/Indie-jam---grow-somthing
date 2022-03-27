@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: da31da080a3740d4cae8a660983b4f5d
+guid: 8e123dbb09452be4e9b1b705ad11a3a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8340746128251326364
-    second: trees-red_0
+      213: 6562195556890842066
+    second: trees-orange 1_0
   - first:
-      213: 2870828339164205278
-    second: trees-red_1
+      213: 7296456057525901384
+    second: trees-orange 1_1
   - first:
-      213: 2638541305141292260
-    second: trees-red_2
+      213: -6480970737289329977
+    second: trees-orange 1_2
   - first:
-      213: 1167868614683277942
-    second: trees-red_3
+      213: 608686514954929030
+    second: trees-orange 1_3
   - first:
-      213: 2045207559902020636
-    second: trees-red_4
+      213: -6292017341671926525
+    second: trees-orange 1_4
   - first:
-      213: -1795607581991796108
-    second: trees-red_5
+      213: -686752118439252718
+    second: trees-orange 1_5
   - first:
-      213: 7506139896860677601
-    second: trees-red_6
+      213: 9188661754588990833
+    second: trees-orange 1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trees-red_0
+      name: trees-orange 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 633.4286
-        height: 635
+        height: 636
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,20 +126,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4607dd76697bf3c80800000000000000
-      internalID: -8340746128251326364
+      spriteID: 2d3102b471a911b50800000000000000
+      internalID: 6562195556890842066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trees-red_1
+      name: trees-orange 1_1
       rect:
         serializedVersion: 2
         x: 633
         y: 0
         width: 633.4286
-        height: 635
+        height: 636
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed0d1070a2b37d720800000000000000
-      internalID: 2870828339164205278
+      spriteID: 84814144028324560800000000000000
+      internalID: 7296456057525901384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trees-red_2
+      name: trees-orange 1_2
       rect:
         serializedVersion: 2
         x: 1266
         y: 0
         width: 633.4286
-        height: 635
+        height: 636
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ec6422665bfd9420800000000000000
-      internalID: 2638541305141292260
+      spriteID: 7c20b2cb377fe06a0800000000000000
+      internalID: -6480970737289329977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trees-red_3
+      name: trees-orange 1_3
       rect:
         serializedVersion: 2
         x: 1899
         y: 0
         width: 633.4286
-        height: 635
+        height: 636
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67a3682415a153010800000000000000
-      internalID: 1167868614683277942
+      spriteID: 683857f092d727800800000000000000
+      internalID: 608686514954929030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trees-red_4
+      name: trees-orange 1_4
       rect:
         serializedVersion: 2
         x: 2532
         y: 0
         width: 633.4286
-        height: 635
+        height: 636
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,20 +210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1447e39079026c10800000000000000
-      internalID: 2045207559902020636
+      spriteID: 3051c0570934ea8a0800000000000000
+      internalID: -6292017341671926525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trees-red_5
+      name: trees-orange 1_5
       rect:
         serializedVersion: 2
         x: 3165
         y: 0
         width: 633.4286
-        height: 635
+        height: 636
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472816fea68b417e0800000000000000
-      internalID: -1795607581991796108
+      spriteID: 21d6eab369a2876f0800000000000000
+      internalID: -686752118439252718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trees-red_6
+      name: trees-orange 1_6
       rect:
         serializedVersion: 2
         x: 3798
         y: 0
         width: 633.4286
-        height: 635
+        height: 636
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,8 +252,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e594ca877a2b2860800000000000000
-      internalID: 7506139896860677601
+      spriteID: 17d8e73ae2fa48f70800000000000000
+      internalID: 9188661754588990833
       vertices: []
       indices: 
       edges: []
