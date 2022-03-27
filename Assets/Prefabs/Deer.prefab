@@ -116,7 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc429f78582733a43a133be021cef6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   _animator: {fileID: 9101904100233647072}
+=======
+>>>>>>> 353b5bf80a696a5bddfe0dcbdda214404d009b79
   fastParameter: 0
   centre: {x: 0, y: 0, z: 0}
 --- !u!60 &7675274315021751182
