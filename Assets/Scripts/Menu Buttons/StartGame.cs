@@ -12,7 +12,7 @@ public class StartGame : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) _gameManager.StartGame();
+        if (Input.GetKeyDown(KeyCode.Space)) _gameManager.LoadInput();
         if (Input.GetKeyDown(KeyCode.R)) _gameManager.LoadRules();
     }
 }

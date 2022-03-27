@@ -9,8 +9,9 @@ public class EnterNameScript : MonoBehaviour
 {
      private string playerName;
      private GameManager _gameManager;
-    [SerializeField] private GameObject textDisplay,inputField;
-    
+     [SerializeField] private GameObject inputField;
+     [SerializeField] private GameObject textDisplay;
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,8 @@ public class EnterNameScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             playerName =  inputField.GetComponent<Text>().text;
-            _gameManager.PlayerName = name;
-            textDisplay.GetComponent<Text>().text = "Welcome" + playerName + "toTheGame";
+            _gameManager.PlayerName = playerName;
+            textDisplay.GetComponent<Text>().text = "Welcome " + playerName + " to The Game";
         }
         print(_gameManager.PlayerName);
     }

@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Instructions");
     }
+
+    public void LoadInput()
+    {
+        SceneManager.LoadScene("EnterYourName");
+    }
     
     public void RestartGame()
     {
