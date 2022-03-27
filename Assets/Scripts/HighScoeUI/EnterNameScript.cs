@@ -23,9 +23,9 @@ public class EnterNameScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            playerName =  inputField.GetComponent<Text>().text;
+            playerName =  inputField.GetComponent<TextMeshProUGUI>().text;
             _gameManager.PlayerName = playerName;
-            textDisplay.GetComponent<Text>().text = "Welcome " + playerName + " to The Game";
+            textDisplay.GetComponent<TextMeshProUGUI>().text = "Welcome " + playerName + " to The Game";
         }
     }
   
