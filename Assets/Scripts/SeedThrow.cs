@@ -96,8 +96,10 @@ public class SeedThrow : MonoBehaviour
     {
         _gameManager.AudioManager.PlaySound("Planted");
         var pos = target.transform.position;
-        pos.z = 0;
-        Instantiate(plants[Random.Range(1, plants.Count)], pos, transform.rotation, garden.transform);
+        var newPlant = Instantiate(plants[Random.Range(1, plants.Count)], pos, transform.rotation, garden.transform);
+        pos = newPlant.transform.localPosition;
+        pos.z = target.transform.localPosition.y / 3;
+        newPlant.transform.localPosition = pos;
         _gameManager.Score += 1;
     }
 
