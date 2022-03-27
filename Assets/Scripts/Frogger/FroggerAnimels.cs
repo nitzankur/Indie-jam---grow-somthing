@@ -12,7 +12,7 @@ public class FroggerAnimels : MonoBehaviour
 
     #endregion
 
-    private void Update()
+    private void FixedUpdate()
     {
         //this code make the bird circular movement, and in wave way
         _angle = fastParamter * Time.deltaTime;
