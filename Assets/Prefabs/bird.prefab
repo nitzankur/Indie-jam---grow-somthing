@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 7436089045761744531}
   - component: {fileID: 7436089045761744530}
   - component: {fileID: 7436089045761744529}
-  - component: {fileID: 7436089045761744524}
   - component: {fileID: 7379332434457302393}
   m_Layer: 0
-  m_Name: Bird
+  m_Name: bird
   m_TagString: Frogger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,22 +103,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7436089045761744524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7436089045761744528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eae33d79d39a1141ac370e044f2ee8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fastParamter: 27.5
-  Radius: 5.19
-  _centre: {x: 2.52, y: -4.09, z: -6}
-  waveSpeed: 0.11
 --- !u!60 &7379332434457302393
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -76,6 +76,7 @@ public class SeedThrow : MonoBehaviour
             targetPos.y = 12;
             _targetDirection *= -1;
         }
+
         target.transform.localPosition = targetPos;
         target.transform.position += _targetDirection * transform.up * targetSpeed / 100;
     }
@@ -96,7 +97,9 @@ public class SeedThrow : MonoBehaviour
     private bool CheckTarget()
     {
         var pos = target.transform.position;
+        target.SetActive(false);
         var intersecting = Physics2D.OverlapCircleAll(pos, seedSizeScaler);
+        target.SetActive(true);
         if (intersecting.Length > 0)
             return intersecting.Length == 1 && intersecting[0].gameObject.CompareTag("Ground");
         return false;
@@ -107,9 +110,9 @@ public class SeedThrow : MonoBehaviour
         _gameManager.AudioManager.PlaySound("Planted");
         var pos = target.transform.position;
         var newPlant = Instantiate(plants[Random.Range(1, plants.Count)], pos, transform.rotation, garden.transform);
-        pos = newPlant.transform.localPosition;// next three lines explanation:
-        pos.z = target.transform.localPosition.y / 3;// meant to plant that are closer to the centre of the world
-        newPlant.transform.localPosition = pos;// wont overlap with those behind them
+        pos = newPlant.transform.localPosition; // next three lines explanation:
+        pos.z = target.transform.localPosition.y / 3; // meant to plant that are closer to the centre of the world
+        newPlant.transform.localPosition = pos; // wont overlap with those behind them
         _gameManager.Score += 1;
     }
 

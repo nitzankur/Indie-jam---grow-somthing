@@ -11,6 +11,7 @@ TagManager:
   - Field
   - Flower
   - Indicator
+  - Target
   layers:
   - Default
   - TransparentFX
