@@ -18,7 +18,7 @@ public class ButtonInput : MonoBehaviour
     
     public IEnumerator ChangeToScene()
     {
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(1.5f);
         _gameManager.StartGame();
     }
     
