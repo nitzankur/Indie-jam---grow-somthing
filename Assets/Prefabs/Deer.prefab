@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7818551117708373686}
   - component: {fileID: 88483416046360698}
   - component: {fileID: 5874738520673685271}
-  - component: {fileID: -7689598024757194378}
   - component: {fileID: -5311675720922606179}
   m_Layer: 0
   m_Name: deer
@@ -28,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047260874661205179}
-  m_LocalRotation: {x: 0, y: 0, z: 0.2546863, w: 0.96702373}
-  m_LocalPosition: {x: -3.19, y: -1.73, z: -5}
+  m_LocalRotation: {x: 0, y: 0, z: -0.13398618, w: 0.9909832}
+  m_LocalPosition: {x: 2.51, y: -1.21, z: 2}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.51}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.4}
 --- !u!212 &7818551117708373686
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117,30 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc429f78582733a43a133be021cef6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  fastParameter: 30.8
-  centre: {x: -0.24, y: -4.84, z: 0}
---- !u!50 &-7689598024757194378
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047260874661205179}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  _animator: {fileID: 88483416046360698}
+  fastParameter: 15
+  centre: {x: 0.08, y: -3.74, z: 2}
 --- !u!60 &-5311675720922606179
 PolygonCollider2D:
   m_ObjectHideFlags: 0
