@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,7 @@ public class HighScoreUI : MonoBehaviour
                 }
 
                 // write or overwrite name & points
+                
                 var texts = uiElements[i].GetComponentsInChildren<Text> ();
                 texts[0].text = el.playerName;
                 texts[1].text = el.points.ToString ();

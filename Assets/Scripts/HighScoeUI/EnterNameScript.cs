@@ -16,7 +16,6 @@ public class EnterNameScript : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-
     }
 
     // Update is called once per frame
@@ -28,7 +27,6 @@ public class EnterNameScript : MonoBehaviour
             _gameManager.PlayerName = playerName;
             textDisplay.GetComponent<Text>().text = "Welcome " + playerName + " to The Game";
         }
-        print(_gameManager.PlayerName);
     }
   
 
