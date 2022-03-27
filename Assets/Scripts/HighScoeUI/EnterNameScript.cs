@@ -21,14 +21,13 @@ public class EnterNameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(inputField.GetComponent<Text>().text);
         if (Input.GetKeyDown(KeyCode.Return))
         {
             playerName =  inputField.GetComponent<Text>().text;
             _gameManager.PlayerName = name;
-            textDisplay.GetComponent<Text>().text = "Your Name is:" + playerName;
-     
+            textDisplay.GetComponent<Text>().text = "Welcome" + playerName + "toTheGame";
         }
+        print(_gameManager.PlayerName);
     }
   
 
