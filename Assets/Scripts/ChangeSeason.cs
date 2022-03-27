@@ -14,17 +14,17 @@ public class ChangeSeason : MonoBehaviour
 
 
     // Update is called once per frame
-    private void Update()
-    {
-        ChangeSeasonAnimation();
-    }
-
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         ChangeSpriteBack(winter);
         _spring = true;
     }
+    private void Update()
+    {
+        ChangeSeasonAnimation();
+    }
+    
 
     private void ChangeSpriteFront(Sprite newSprite)
     {
@@ -75,4 +75,5 @@ public class ChangeSeason : MonoBehaviour
             _spring = true;
         }
     }
+    
 }

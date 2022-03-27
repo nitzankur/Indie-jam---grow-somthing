@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _shared;
+    public static GameManager _shared;
 
     [SerializeField] private List<int> winterTargets = new List<int>();
     private int _yearsPassed;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool IsTrowingSeed { get; set; }
     public string CurrentSeason { get; set; }
     public int Score { get; set; }
+    public string PlayerName { get; set; }
     public int NextGoal { get; set; }
     public float CurrentDeg { get; set; }
     public AudioManager AudioManager { get; set; }
@@ -24,7 +26,9 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else
+        {
             Destroy(gameObject);
+        }
 
         AudioManager = FindObjectOfType<AudioManager>();
         SetDefaultVariables();
@@ -49,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Instructions");
     }
-
+    
     public void RestartGame()
     {
         SetDefaultVariables();
