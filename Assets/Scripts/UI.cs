@@ -6,7 +6,7 @@ using UnityEngine;
 public class UI : MonoBehaviour
 {
     private GameManager _gameManager;
-    [SerializeField] private TextMeshProUGUI _curScore, _targetScore;
+    [SerializeField] private TextMeshProUGUI _curScore;
     
     void Start()
     {
@@ -15,7 +15,6 @@ public class UI : MonoBehaviour
     
     void Update()
     {
-        _curScore.text = "X" + _gameManager.Score;
-        _targetScore.text = "Goal for next winter is " + _gameManager.NextGoal + " plants";
+        _curScore.text = _gameManager.Score + " / " + _gameManager.NextGoal;
     }
 }
